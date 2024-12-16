@@ -1,5 +1,5 @@
 datasource db {
-  provider = "mysql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -14,9 +14,11 @@ model Emotion {
   notes     String
   feelings  String
   date      DateTime @default(now())
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
 }
 
 model User {
   id      Int      @id
-  results Result[]
+  results Emotion[]
 }
