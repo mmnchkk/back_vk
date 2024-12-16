@@ -1,0 +1,22 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Emotion {
+  id        Int      @id @default(autoincrement())
+  mood      String
+  reason    String
+  notes     String
+  feelings  String
+  date      DateTime @default(now())
+}
+
+model User {
+  id      Int      @id
+  results Result[]
+}
