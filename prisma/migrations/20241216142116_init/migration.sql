@@ -1,0 +1,16 @@
+-- CreateTable
+CREATE TABLE "Emotion" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "mood" TEXT NOT NULL,
+    "reason" TEXT NOT NULL,
+    "notes" TEXT NOT NULL,
+    "feelings" TEXT NOT NULL,
+    "date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "userId" INTEGER,
+    CONSTRAINT "Emotion_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "User" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT
+);
